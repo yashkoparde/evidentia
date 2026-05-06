@@ -68,7 +68,7 @@ graph TD
 
 ### 1. Clone & Prerequisite
 ```bash
-git clone https://github.com/your-username/evidentia.git
+git clone https://github.com/yashkoparde/evidentia.git
 npm install
 ```
 
