@@ -70,6 +70,7 @@ class BlockchainService {
         return { success: false, error: 'Transaction rejected by user' };
       }
       
+<<<<<<< HEAD
       // Specifically handle the "internal account" / "data" error or other RPC exception
       const isEoaError = error.message?.includes('internal accounts cannot include data') || 
                          error.code === -32602 ||
@@ -80,6 +81,13 @@ class BlockchainService {
         return {
           ...this.mockStore(hash, caseId),
           error: 'EOA configured. Used Secure Sandbox consensus fallback.'
+=======
+      // Specifically handle the "internal account" / "data" error
+      if (error.message?.includes('internal accounts cannot include data') || error.code === -32602) {
+        return { 
+          success: false, 
+          error: 'Misconfiguration: The target address is not a contract. Please ensure VITE_CONTRACT_ADDRESS is a deployed EvidenceVault contract, not a personal wallet.' 
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
         };
       }
 
@@ -87,9 +95,13 @@ class BlockchainService {
         return { success: false, error: 'Evidence hash already registered on-chain' };
       }
       
+<<<<<<< HEAD
       // For other unexpected blockchain RPC/network errors in build/dev, fall back to mock to ensure zero disruption
       console.warn('Unexpected chain error. Falling back to mock storage for service continuity.');
       return this.mockStore(hash, caseId);
+=======
+      return { success: false, error: error.message || 'Unknown blockchain error' };
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
     }
   }
 
@@ -119,8 +131,13 @@ class BlockchainService {
         caseId: caseId || 'BLOCKCHAIN_VERIFIED'
       };
     } catch (error) {
+<<<<<<< HEAD
       console.error('Blockchain verification failed, falling back to local sandbox store lookup:', error);
       return this.mockGet(hash);
+=======
+      console.error('Blockchain verification failed:', error);
+      return null;
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
     }
   }
 

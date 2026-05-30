@@ -660,7 +660,11 @@ export const EvidenceDetail: React.FC<EvidenceDetailProps> = ({ evidenceId, onBa
                 <div className="flex flex-col items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl">
                   <div className="p-4 bg-white rounded-lg shadow-[0_0_30px_rgba(25,185,155,0.2)]">
                     <QRCodeSVG 
+<<<<<<< HEAD
                       value={`${window.location.origin}?evidence=${evidence.id}`}
+=======
+                      value={window.location.href}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
                       size={140}
                       level="H"
                       includeMargin={false}

@@ -11,11 +11,16 @@ let armoriqClient: ArmorIQClient | null = null;
 export const getArmorIQClient = (): ArmorIQClient => {
   if (armoriqClient) return armoriqClient;
 
+<<<<<<< HEAD
   // Ensure API key matches SDK expected format: starts with ak_live_, ak_claw_, or ak_test_
   let apiKey = import.meta.env.VITE_ARMORIQ_API_KEY || "ak_test_evidentia_placeholder";
   if (!apiKey.startsWith("ak_live_") && !apiKey.startsWith("ak_claw_") && !apiKey.startsWith("ak_test_")) {
     apiKey = `ak_test_${apiKey}`;
   }
+=======
+  // Ideally, manage these securely
+  const apiKey = import.meta.env.VITE_ARMORIQ_API_KEY || "ak_default_placeholder";
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
   const userId = import.meta.env.VITE_ARMORIQ_USER_ID || "evidentia-user";
   const agentId = import.meta.env.VITE_ARMORIQ_AGENT_ID || "evidentia-forensic-agent";
 

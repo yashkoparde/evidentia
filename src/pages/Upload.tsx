@@ -79,7 +79,10 @@ export const Upload: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [showHologram, setShowHologram] = useState(false);
   const [lastTxHash, setLastTxHash] = useState<string | null>(null);
+<<<<<<< HEAD
   const [uploadedId, setUploadedId] = useState('');
+=======
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
 
   const [finalHash, setFinalHash] = useState('');
   const [duration, setDuration] = useState<number | undefined>();
@@ -162,7 +165,10 @@ export const Upload: React.FC = () => {
     // STEP 4: Storage
     setAnalysisText("Syncing record with indexed database...");
     const id = crypto.randomUUID();
+<<<<<<< HEAD
     setUploadedId(id);
+=======
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
     
     try {
       await addEvidence({
@@ -211,7 +217,10 @@ export const Upload: React.FC = () => {
     setStage('idle');
     setProgress(0);
     setShowHologram(false);
+<<<<<<< HEAD
     setUploadedId('');
+=======
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
   };
 
   return (
@@ -479,6 +488,7 @@ export const Upload: React.FC = () => {
                 </div>
               </GlassCard>
 
+<<<<<<< HEAD
               <GlassCard className="flex flex-col items-center justify-center p-6 gap-3">
                 <div className="flex items-center gap-1.5 px-2 py-0.5 bg-evidentia-accent/15 border border-evidentia-accent/30 rounded-full text-[8.5px] font-mono text-evidentia-accent uppercase tracking-widest font-bold mb-1 animate-pulse">
                   <span className="w-1.5 h-1.5 rounded-full bg-evidentia-accent animate-ping" /> SECURE DOSSIER SHARE QR
@@ -496,10 +506,25 @@ export const Upload: React.FC = () => {
                 <div className="text-center space-y-1 w-full max-w-[200px]">
                   <p className="text-[8px] font-mono text-white/40 uppercase tracking-widest">DYNAMIC HANDSHAKE SIGNATURE</p>
                   {lastTxHash ? (
+=======
+              {lastTxHash && (
+                <GlassCard className="flex flex-col items-center justify-center p-6 gap-4">
+                  <div className="p-2 bg-white rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                    <QRCodeSVG 
+                      value={`https://polygonscan.com/tx/${lastTxHash}`}
+                      size={100}
+                      level="H"
+                      includeMargin={false}
+                    />
+                  </div>
+                  <div className="text-center space-y-2">
+                    <p className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Transaction Hash</p>
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
                     <a 
                       href={`https://polygonscan.com/tx/${lastTxHash}`}
                       target="_blank"
                       rel="noopener noreferrer"
+<<<<<<< HEAD
                       className="text-[8px] font-mono text-emerald-400 flex items-center justify-center gap-1 hover:underline truncate"
                     >
                       TX: {lastTxHash.substring(0, 16)}... <ExternalLink className="w-2.5 h-2.5" />
@@ -509,6 +534,15 @@ export const Upload: React.FC = () => {
                   )}
                 </div>
               </GlassCard>
+=======
+                      className="text-[9px] font-mono text-evidentia-accent flex items-center justify-center gap-1 hover:underline truncate max-w-[180px]"
+                    >
+                      {lastTxHash.substring(0, 24)}... <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </GlassCard>
+              )}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
             </div>
 
             <div className="flex gap-4">

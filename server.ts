@@ -21,10 +21,14 @@ function getAIClient() {
 
 function getArmorIQClient() {
   if (!armoriqClient) {
+<<<<<<< HEAD
     let apiKey = process.env.VITE_ARMORIQ_API_KEY || process.env.ARMORIQ_API_KEY || "ak_test_evidentia_placeholder";
     if (!apiKey.startsWith("ak_live_") && !apiKey.startsWith("ak_claw_") && !apiKey.startsWith("ak_test_")) {
       apiKey = `ak_test_${apiKey}`;
     }
+=======
+    const apiKey = process.env.VITE_ARMORIQ_API_KEY || process.env.ARMORIQ_API_KEY || "ak_default_placeholder";
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
     const userId = process.env.VITE_ARMORIQ_USER_ID || process.env.ARMORIQ_USER_ID || "evidentia-user";
     const agentId = process.env.VITE_ARMORIQ_AGENT_ID || process.env.ARMORIQ_AGENT_ID || "evidentia-forensic-agent";
 

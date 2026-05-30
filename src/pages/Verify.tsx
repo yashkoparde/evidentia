@@ -5,7 +5,10 @@ import {
   Database, Cpu, FileText, Upload as UploadIcon, Box, X, ExternalLink,
   QrCode, Camera, Key, RefreshCw
 } from 'lucide-react';
+<<<<<<< HEAD
 import { QRCodeSVG } from 'qrcode.react';
+=======
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
 import { GlassCard } from '../components/GlassCard';
 import { GlowButton } from '../components/GlowButton';
 import { useApp } from '../context/AppContext';
@@ -113,6 +116,13 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
     }
 
     setLinkScanStatus('success');
+<<<<<<< HEAD
+=======
+    
+    // Smooth navigation: Wait 1 second and then open the evidence detail page!
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    onEvidenceClick(matchedId);
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
   };
 
   const startVerification = async () => {
@@ -173,7 +183,10 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
   };
 
   const selectedEvidence = evidenceList.find(e => e.id === selectedId);
+<<<<<<< HEAD
   const resolvedEvidence = evidenceList.find(e => e.id === resolvedEvidenceId);
+=======
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
 
   const renderVerificationConsole = () => {
     if (verifyMode === 'scan' && !selectedEvidence) return null;
@@ -492,6 +505,7 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
                   )}
 
                   {linkScanStatus === 'scanning' ? (
+<<<<<<< HEAD
                     <div className="text-center space-y-4 z-10 w-full px-4 flex flex-col items-center">
                       <div className="relative flex items-center justify-center p-3 bg-white rounded-lg mb-2">
                         <QRCodeSVG 
@@ -512,10 +526,33 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
                           DECODING SECURE CREDENTIALS...
                         </div>
                         <div className="text-xs font-mono text-white/50">
+=======
+                    <div className="text-center space-y-6 z-10">
+                      <div className="relative flex items-center justify-center">
+                        <motion.div 
+                          animate={{ rotate: 360 }}
+                          transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                          className="w-28 h-28 rounded-full border border-dashed border-evidentia-accent/30 flex items-center justify-center"
+                        />
+                        <motion.div 
+                          animate={{ rotate: -360 }}
+                          transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
+                          className="w-20 h-20 rounded-full border border-dashed border-evidentia-accent/60 absolute flex items-center justify-center"
+                        />
+                        <QrCode className="w-10 h-10 text-evidentia-accent absolute animate-pulse" />
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="text-[11px] font-mono text-evidentia-accent font-bold tracking-widest uppercase animate-pulse">
+                          DECODING SECURE CREDENTIALS...
+                        </div>
+                        <div className="text-[16px] font-display font-black text-white">
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
                           {linkScanProgress}% COMPLETION
                         </div>
                       </div>
                     </div>
+<<<<<<< HEAD
                   ) : linkScanStatus === 'success' && resolvedEvidence ? (
                     <motion.div 
                       initial={{ scale: 0.95, opacity: 0 }}
@@ -576,6 +613,8 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
                         </button>
                       </div>
                     </motion.div>
+=======
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
                   ) : linkScanStatus === 'success' ? (
                     <motion.div 
                       initial={{ scale: 0.9, opacity: 0 }}
@@ -587,7 +626,11 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
                       </div>
                       <div className="space-y-1">
                         <h4 className="text-lg font-display font-black tracking-tight text-white uppercase italic">ACCESS GRANTED</h4>
+<<<<<<< HEAD
                         <p className="text-[9px] font-mono text-evidentia-success/80 uppercase tracking-widest">Dynamic handshake authenticated.</p>
+=======
+                        <p className="text-[9px] font-mono text-evidentia-success/80 uppercase tracking-widest">Redirecting to Vault Artifact Page...</p>
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
                       </div>
                     </motion.div>
                   ) : linkScanStatus === 'failed' ? (
@@ -596,6 +639,7 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
                       animate={{ scale: 1, opacity: 1 }}
                       className="text-center space-y-4 z-10"
                     >
+<<<<<<< HEAD
                       <div className="w-16 h-16 rounded-full bg-evidentia-danger/10 border border-evidentia-danger flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(255,59,59,0.3)]">
                         <ShieldAlert className="w-8 h-8 text-evidentia-danger" />
                       </div>
@@ -635,6 +679,19 @@ export const Verify: React.FC<{ onEvidenceClick: (id: string) => void }> = ({ on
                   ) : (
                     <div className="text-center space-y-4 z-10">
                       <QrCode className="w-16 h-16 text-white/10 mx-auto" />
+=======
+                      <div className="w-20 h-20 rounded-full bg-evidentia-danger/10 border border-evidentia-danger flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(255,59,59,0.3)]">
+                        <ShieldAlert className="w-10 h-10 text-evidentia-danger" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-lg font-display font-black tracking-tight text-white uppercase italic">DECODE FAILURE</h4>
+                        <p className="text-[9px] font-mono text-evidentia-danger/80 uppercase tracking-widest px-4">The secure signature is invalid or unrecognized.</p>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <div className="text-center space-y-4 z-10">
+                      <QrCode className="w-20 h-20 text-white/10 mx-auto" />
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
                       <div className="space-y-2">
                         <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.2em]">Awaiting secure input</p>
                         <p className="text-[9px] font-mono text-[#E0E6ED]/30 max-w-[200px] leading-relaxed mx-auto uppercase">

@@ -130,9 +130,15 @@ const AppContent: React.FC = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedEvidenceId ? 'detail' : activeTab}
+<<<<<<< HEAD
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
+=======
+              initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               {renderContent()}

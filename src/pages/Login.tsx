@@ -16,6 +16,7 @@ export const Login: React.FC = () => {
   const [phase, setPhase] = React.useState<'intro-1' | 'intro-2' | 'form'>('intro-1');
 
   React.useEffect(() => {
+<<<<<<< HEAD
     // Stage 1: Ministry Reveal (Accelerated)
     const t1 = setTimeout(() => {
       setPhase('intro-2');
@@ -25,6 +26,17 @@ export const Login: React.FC = () => {
     const t2 = setTimeout(() => {
       setPhase('form');
     }, 850);
+=======
+    // Stage 1: Ministry Reveal
+    const t1 = setTimeout(() => {
+      setPhase('intro-2');
+    }, 3500);
+
+    // Stage 2: Bureau Reveal
+    const t2 = setTimeout(() => {
+      setPhase('form');
+    }, 8000);
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
 
     return () => {
       clearTimeout(t1);
@@ -105,10 +117,17 @@ export const Login: React.FC = () => {
         {phase === 'intro-1' && (
           <motion.div
             key="intro-1"
+<<<<<<< HEAD
             initial={{ opacity: 0, letterSpacing: '0.6em' }}
             animate={{ opacity: 1, letterSpacing: '0.4em' }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+=======
+            initial={{ opacity: 0, letterSpacing: '1em', filter: 'blur(8px)' }}
+            animate={{ opacity: 1, letterSpacing: '0.4em', filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
             className="flex flex-col items-center justify-center text-center space-y-4"
           >
             <h2 className="text-[10px] font-serif tracking-[0.6em] text-white/30 uppercase pl-[0.6em]">
@@ -121,25 +140,42 @@ export const Login: React.FC = () => {
         {phase === 'intro-2' && (
           <motion.div
             key="intro-2"
+<<<<<<< HEAD
             initial={{ opacity: 0, scale: 0.99 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.01 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+=======
+            initial={{ opacity: 0, scale: 0.98, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, scale: 1.02, filter: 'blur(12px)' }}
+            transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
             className="flex flex-col items-center justify-center text-center relative px-6"
           >
             <motion.div 
               initial={{ height: 0 }}
               animate={{ height: "40px" }}
+<<<<<<< HEAD
               transition={{ delay: 0.1, duration: 0.3, ease: "circOut" }}
+=======
+              transition={{ delay: 0.8, duration: 1.5, ease: "circOut" }}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
               className="w-[1px] bg-white/10 mb-8" 
             />
             <h1 className="text-3xl md:text-5xl font-serif tracking-[0.3em] text-white/80 uppercase leading-tight mb-4 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] pl-[0.3em]">
               Evidentia <br /> secure ledger
             </h1>
             <div className="flex items-center gap-4 text-white/20">
+<<<<<<< HEAD
                <div className="h-[1px] w-8 bg-white/10" />
                <span className="text-[10px] font-serif tracking-[0.5em] uppercase pl-[0.5em]">EVIDENTIA SECURITY</span>
                <div className="h-[1px] w-8 bg-white/10" />
+=======
+              <div className="h-[1px] w-8 bg-white/10" />
+              <span className="text-[10px] font-serif tracking-[0.5em] uppercase pl-[0.5em]">EVIDENTIA SECURITY</span>
+              <div className="h-[1px] w-8 bg-white/10" />
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
             </div>
           </motion.div>
         )}
@@ -147,9 +183,15 @@ export const Login: React.FC = () => {
         {phase === 'form' && (
           <motion.div
             key="form"
+<<<<<<< HEAD
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+=======
+            initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+>>>>>>> 02e00201138f1d200cbf20b6011582b008b20212
             className="w-full max-w-sm px-8 z-10 flex flex-col items-center"
           >
             <div className="w-full mb-10 flex flex-col items-center">
