@@ -1,6 +1,6 @@
 # Forensic AI Inspection Protocol (Parikshak.ai)
 
-Evidentia utilizes the **Parikshak.ai** model (powered by Gemini 1.5 Flash) for its speed and long-context reasoning capabilities to perform automated forensic triage on uploaded artifacts.
+Evidentia utilizes the **Parikshak.ai** model (powered by Gemini 3 Flash) for its speed and long-context reasoning capabilities to perform automated forensic triage on uploaded artifacts.
 
 ## 1. Metadata Heuristics
 When a file is uploaded, the system extracts EXIF data, headers, and file system metadata. Gemini analyzes these for:
