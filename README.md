@@ -97,7 +97,6 @@ Evidentia resolves this vulnerability by splitting the state distribution into t
 </svg>
 
 ---
-
 ## Systems Topology Diagram
 
 The following logical sequence illustrates data orchestration across physical, relational, and decentralized state boundaries during intake operations:
