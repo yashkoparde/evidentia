@@ -1,5 +1,11 @@
 # Evidentia: Secure Ledger & Digital Evidence Intelligence
+# <img src="https://img.icons8.com/isometric/50/000000/fingerprint.png" width="32"/> Evidentia: Digital Evidence Vault
 
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Polygon](https://img.shields.io/badge/Polygon-Mainnet-8247E5?style=for-the-badge&logo=polygon&logoColor=white)](https://polygon.technology/)
+[![Supabase](https://img.shields.io/badge/Supabase-Auth_&_DB-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/Security-Government_Grade-red?style=for-the-badge)](https://github.com/)
 Evidentia is a next-generation Digital Evidence Management System (DEMS) designed to ensure absolute chain-of-custody, forensic analysis verification, and mathematical proof of data integrity. 
 
 By bridging high-performance Web3 blockchain anchoring with cloud persistence, and pairing it with secure AI-driven forensic analysis protected by the **ArmorIQ API Framework**, Evidentia eliminates the vulnerability of inside-administrator tampering in modern evidence registries.
