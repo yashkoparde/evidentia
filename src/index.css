@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cinzel", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Cinzel", serif;
+
+  --color-evidentia-bg: #05070A;
+  --color-evidentia-panel: rgba(11, 15, 20, 0.85);
+  --color-evidentia-accent: #00F0FF;
+  --evidentia-accent-rgb: 0, 240, 255;
+  --color-evidentia-success: #00FF9C;
+  --color-evidentia-danger: #FF3B3B;
+  --color-evidentia-violet: #7A5FFF;
+  --color-evidentia-border: rgba(0, 240, 255, 0.15);
+  --color-evidentia-glow: rgba(0, 240, 255, 0.4);
+}
+
+@layer base {
+  body {
+    @apply bg-evidentia-bg text-[#E0E6ED] selection:bg-evidentia-accent/30 selection:text-white overflow-hidden font-sans;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-evidentia-panel border border-evidentia-border backdrop-blur-[12px] shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] rounded-lg;
+  }
+  
+  .glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  .glow-border {
+    box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.1), 0 0 10px rgba(0, 240, 255, 0.1);
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  .scanline {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color-evidentia-accent), transparent);
+    opacity: 0.3;
+    top: 0;
+    pointer-events: none;
+    z-index: 50;
+    animation: scan 4s linear infinite;
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.8) 150%);
+    pointer-events: none;
+    z-index: 99;
+  }
+
+  .crt-noise {
+    position: fixed;
+    inset: 0;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 98;
+    mix-blend-mode: overlay;
+  }
+
+  .glitch-text {
+    animation: glitch 1s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+}
+
+@keyframes pulse-danger {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
+}
+
+.pulse-danger {
+  animation: pulse-danger 2s infinite;
+}
+
+@keyframes scan {
+  from { top: -10px; }
+  to { top: 100%; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-evidentia-accent/20 rounded-full hover:bg-evidentia-accent/40 transition-colors;
+}
