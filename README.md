@@ -1,10 +1,38 @@
 # Evidentia: Secure Ledger and Digital Evidence Intelligence
-
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Polygon](https://img.shields.io/badge/Polygon-Mainnet-8247E5?style=for-the-badge&logo=polygon&logoColor=white)](https://polygon.technology/)
+[![Supabase](https://img.shields.io/badge/Supabase-Auth_&_DB-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/Security-Government_Grade-red?style=for-the-badge)](https://github.com/)
 Evidentia is an enterprise-grade Digital Evidence Management System (DEMS) engineered to enforce absolute, mathematically provable chain-of-custody, forensic audit synchronization, and raw binary integrity verification.
-
 By combining low-latency blockchain key anchoring with cloud state synchronization, and shielding automated analysis via the ArmorIQ API security gateway, Evidentia guarantees that digital evidence holds zero-tampering status from the exact millisecond of ingest.
 
 ---
+## Tech Stack & Architecture
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Frontend** | React 18, Vite | High-performance SPA with Atomic Design |
+| **Logic** | TypeScript | Type-safe forensic operations |
+| **Styling** | Tailwind CSS | Custom government-terminal aesthetic |
+| **Animation** | Framer Motion | Fluid state transitions and cinematic effects |
+| **Database** | Supabase (PostgreSQL) | Metadata storage and system orchestration |
+| **Storage** | Supabase Storage (S3) | Encrypted artifact hosting |
+| **Blockchain** | Polygon PoS | Immutable SHA-256 hash anchoring |
+| **Web3** | Ethers.js | EVM contract interaction |
+
+## 📁 System Architecture
+
+```mermaid
+graph TD
+    A[Officer Uploads File] --> B[SHA-256 Hash Generated Locally]
+    B --> C[File Uploaded to Private S3 Bucket]
+    B --> D[Hash Sent to Polygon Smart Contract]
+    C --> E[PostgreSQL Metadata Created]
+    D --> E
+    E --> F[Verification Dashboard]
+    F --> G[Comparison: Local vs DB vs Blockchain]
+```
 
 ## Technical Security Architecture & Systems Map
 
@@ -273,10 +301,10 @@ To set up active network environments, write system keys inside the local `.env`
 ```env
 # Supabase Core Variables
 VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+VITE_SUPABASE_ANON_KEY=ABCDEF...
 
 # Polygon Smart Contract Details
-VITE_CONTRACT_ADDRESS=0x946bF094593C2932906DFeCD54FEf00E688dEc01
+VITE_CONTRACT_ADDRESS=0x946bddl......
 VITE_BLOCKCHAIN_RPC_URL=https://polygon-mainnet.infura.io/v3/...
 
 # Secure AI Intelligence & Shielding Credentials
@@ -302,3 +330,4 @@ npm run start
 
 ## Regulatory Compliance Declaration
 Evidentia has been explicitly engineered to conform with standard Electronic Signature Preservation guidelines and aligns with CJIS (Criminal Justice Information Services) security directives for digital custodianship. Any manual modifications, log deletion, or bypass attempts of the ArmorIQ secure tracking layer will instantly compromise validation consensus and broadcast real-time network telemetry alerts.
+
