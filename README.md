@@ -39,64 +39,26 @@ graph TD
 Every system database that handles sensitive judicial artifacts faces the Database Administrator (DBA) trust compromise: if an administrative account possesses write, update, or delete privileges on database tables, any record can be silently modified post-facto. 
 
 Evidentia resolves this vulnerability by splitting the state distribution into three distinct layers, integrated into a single unified verification loop:
+```mermaid
+graph LR
+    subgraph STAGE_1 [1. Client Ingest]
+        A[WebCrypto API] -->|Generates Hash| B[SHA-256 Digest]
+    end
+    subgraph STAGE_2 [2. Cloud Storage]
+        C[Supabase Storage] -->|Upload Block| D[Encrypted S3 Object]
+    end
+    subgraph STAGE_3 [3. Public Ledger]
+        E[Polygon Blockchain] -->|Secure Anchor| F[On-Chain SHA Signature]
+    end
+    subgraph STAGE_4 [4. AI Shield]
+        G[ArmorIQ Gateway] -->|Intent Token Lock| H[Gemini 3 Flash LLM]
+    end
 
-<svg width="100%" height="220" viewBox="0 0 800 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#030712; border: 1px solid #1f2937; border-radius: 8px;">
-  <!-- Gradients -->
-  <defs>
-    <linearGradient id="blue_glow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.4"/>
-    </linearGradient>
-    <linearGradient id="purple_glow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.4"/>
-    </linearGradient>
-    <linearGradient id="green_glow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10B981" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#10B981" stop-opacity="0.4"/>
-    </linearGradient>
-  </defs>
+    B -->|Ingest Stream| C
+    D -->|State Sync| E
+    F -->|Forensic Audit| G
+```
 
-  <!-- Title / Logo Accent -->
-  <text x="30" y="30" fill="#00F0FF" font-family="monospace" font-size="11" letter-spacing="0.2em">EVIDENTIA CRYPTOGRAPHIC STEWARDSHIP MAP [PROTOCOL 9-V]</text>
-  
-  <!-- Active Connections / Bus Line -->
-  <path d="M 150 110 L 650 110" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 4" />
-  
-  <!-- Step Direction indicators -->
-  <path d="M 120 110 H 210" stroke="#00F0FF" stroke-width="1.5" />
-  <path d="M 290 110 H 380" stroke="#10B981" stroke-width="1.5" />
-  <path d="M 460 110 H 550" stroke="#8B5CF6" stroke-width="1.5" />
-
-  <!-- Node 1: Client Ingest -->
-  <rect x="30" y="70" width="120" height="80" rx="4" fill="#090d16" stroke="#00F0FF" stroke-width="1.5" />
-  <text x="90" y="95" fill="#f3f4f6" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">1. Client Ingest</text>
-  <text x="90" y="115" fill="#9ca3af" font-family="monospace" font-size="9" text-anchor="middle">WebCrypto API</text>
-  <text x="90" y="130" fill="#00F0FF" font-family="monospace" font-size="8" text-anchor="middle">Generates SHA-256</text>
-
-  <!-- Node 2: Supabase Storage -->
-  <rect x="200" y="70" width="120" height="80" rx="4" fill="#090d16" stroke="#10B981" stroke-width="1.5" />
-  <text x="260" y="95" fill="#f3f4f6" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2. Cloud Storage</text>
-  <text x="260" y="115" fill="#9ca3af" font-family="monospace" font-size="9" text-anchor="middle">Supabase S3 Bucket</text>
-  <text x="260" y="130" fill="#10B981" font-family="monospace" font-size="8" text-anchor="middle">Encrypted Object ID</text>
-
-  <!-- Node 3: Polygon Blockchain -->
-  <rect x="370" y="70" width="120" height="80" rx="4" fill="#090d16" stroke="#8B5CF6" stroke-width="1.5" />
-  <text x="430" y="95" fill="#f3f4f6" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">3. Public Ledger</text>
-  <text x="430" y="115" fill="#9ca3af" font-family="monospace" font-size="9" text-anchor="middle">Polygon Blockchain</text>
-  <text x="430" y="130" fill="#8B5CF6" font-family="monospace" font-size="8" text-anchor="middle">Immutable Hash Anchor</text>
-
-  <!-- Node 4: ArmorIQ & AI Proxy -->
-  <rect x="540" y="70" width="230" height="80" rx="4" fill="#090d16" stroke="#f59e0b" stroke-width="1.5" />
-  <text x="655" y="95" fill="#f3f4f6" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">4. Secure Analytics [ArmorIQ]</text>
-  <text x="655" y="115" fill="#9ca3af" font-family="monospace" font-size="9" text-anchor="middle">Express Server & Google Gemini</text>
-  <text x="655" y="130" fill="#f59e0b" font-family="monospace" font-size="8" text-anchor="middle">Plan Locked via Intent Token Handshake</text>
-
-  <path d="M 655 150 L 655 180" stroke="#f59e0b" stroke-dasharray="2 2" stroke-width="1"/>
-  <text x="655" y="195" fill="#9ca3af" font-family="monospace" font-size="8" text-anchor="middle">Defends AI Forensic Summary Against Injection</text>
-</svg>
-
----
 ## Systems Topology Diagram
 
 The following logical sequence illustrates data orchestration across physical, relational, and decentralized state boundaries during intake operations:
