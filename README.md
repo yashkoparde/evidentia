@@ -130,35 +130,6 @@ Attorneys, external validators, or magistrates can verify the mathematical integ
 
 ---
 
-## Detailed ArmorIQ AI Security Protection
-
-Traditional Large Language Models (LLMs) used in forensic pipeline reporting are subject to serious threats:
-* **LLM Jailbreaking / Prompt Injections**: Cleverly manipulated text layers or hidden binary codes inside artifacts could hijack the AI system prompt, causing it to misclassify critical evidence risks.
-* **Unauthorized AI State Alterations**: Uncontrolled execution loops can leak context boundaries or allow untracked decisions within database state definitions.
-
-### The Guarded Ingestion Solution
-Evidentia completely addresses this by routing the Gemini model evaluation inside the **ArmorIQ API Guarding Framework**. No instruction is fired directly at the model; instead, the system defines a immutable, signed **Execution Plan Boundary** through the ArmorIQ SDK before processing context.
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant App as Express Backend
-    participant Armor as ArmorIQ Guard Service
-    participant Gemini as Gemini 3 Flash API
-    
-    App->>Armor: Initialize Client with Key & Context Bounds
-    App->>App: Build Plan Definition (Secure Forensic Evaluation Steps Only)
-    App->>Armor: Call capturePlan(Tool, Prompt, PlanDef)
-    Armor->>Armor: Lock execution constraints & verify schema signature
-    Armor-->>App: Issue Signed Cryptographic Intent Token
-    App->>Gemini: Forward Secured Prompt + Intent Validation Header
-    Gemini->>Gemini: Verify payload constraint matches captured target
-    Gemini-->>App: Emits Verified JSON Schema response
-    App->>App: Parse Safe Analysis Metrics and Commit State
-```
-
----
-
 ## Core Code Verification
 
 Evidentia deploys the ArmorIQ safeguarding pipeline directly within its Express API gateway `/server.ts`. This verified code demonstrates exactly how the integration shields the system:
@@ -269,9 +240,8 @@ VITE_CONTRACT_ADDRESS=0x946bddl......
 VITE_BLOCKCHAIN_RPC_URL=https://polygon-mainnet.infura.io/v3/...
 
 # Secure AI Intelligence & Shielding Credentials
-GEMINI_API_KEY=AIzaSy...
-ARMORIQ_API_KEY=ak_...
-```
+API_KEY=AIzaSy...
+
 
 ### 3. Execution Scripts
 Run standard terminal operations to build, verify, and run the containerized backend and frontend interface elements:
@@ -291,4 +261,3 @@ npm run start
 
 ## Regulatory Compliance Declaration
 Evidentia has been explicitly engineered to conform with standard Electronic Signature Preservation guidelines and aligns with CJIS (Criminal Justice Information Services) security directives for digital custodianship. Any manual modifications, log deletion, or bypass attempts of the ArmorIQ secure tracking layer will instantly compromise validation consensus and broadcast real-time network telemetry alerts.
-
